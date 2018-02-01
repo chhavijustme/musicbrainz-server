@@ -13,50 +13,52 @@ function userLink(userName, path) {
   return `/user/${encodeURIComponent(userName)}${path}`;
 }
 
-const AccountMenu = () => (
+const AccountMenu = () => {
+  let userName = $c.user.name;
+  
+  return(
   <li className="account" tabIndex="-1">
-    <span className="menu-header">{$c.user.name}{'\xA0\u25BE'}</span>
+    <span className="menu-header">{userName}{'\xA0\u25BE'}</span>
     <ul>
+      
       <li>
-        <a href={userLink($c.user.name, '')}>{l('Profile')}</a>
+        <a href={userLink(userName, '')}>{l('Profile')}</a>
       </li>
+      
       <li>
         <a href="/account/applications">{l('Applications')}</a>
       </li>
-      <li>
-        <a href={userLink($c.user.name, '/subscriptions/artist')}>
-          {l('Subscriptions')}
-        </a>
-      </li>
-      <li>
-        <a href="/logout">{l('Log Out')}</a>
-      </li>
-    </ul>
-  </li>
-);
 
-const DataMenu = () => {
-  let userName = $c.user.name;
+    <li className="separator"></li>
+  
 
-  return (
-    <li className="data" tabIndex="-1">
-      <span className="menu-header">{l('My Data')}{'\xA0\u25BE'}</span>
-      <ul>
-        <li>
+
+      <li>
+        <a href={userLink(userName, '/subscriptions/artist')}> {l('My Subscriptions')}</a>
+      </li>
+
+      
+      <li>
           <a href={userLink(userName, '/collections')}>{l('My Collections')}</a>
-        </li>
-        <li>
+      </li>
+
+      <li>
           <a href={userLink(userName, '/ratings')}>{l('My Ratings')}</a>
-        </li>
-        <li>
+      </li>
+
+      <li>
           <a href={userLink(userName, '/tags')}>{l('My Tags')}</a>
-        </li>
+      </li>
+
+
         <li className="separator">
           <a href={userLink(userName, '/edits/open')}>{l('My Open Edits')}</a>
         </li>
+
         <li>
           <a href={userLink(userName, '/edits/all')}>{l('All My Edits')}</a>
         </li>
+
         <li>
           <a href="/edit/subscribed">{l('Edits for Subscribed Entities')}</a>
         </li>
@@ -66,10 +68,15 @@ const DataMenu = () => {
         <li>
           <a href="/edit/notes-received">{l('Notes Left on My Edits')}</a>
         </li>
-      </ul>
-    </li>
-  );
+
+     
+        <li className="separator"> <a href="/logout">{l('Log Out')}</a> </li>
+
+    </ul>
+  </li>
+);
 };
+
 
 const AdminMenu = () => (
   <li className="admin" tabIndex="-1">
@@ -110,7 +117,7 @@ const UserMenu = (props) => (
   <ul className="menu" tabIndex="-1">
     {$c.user && [
       <AccountMenu key={1} />,
-      <DataMenu key={2} />,
+      // <DataMenu key={2} />,
       $c.user.is_admin && <AdminMenu key={3} />
     ]}
 
