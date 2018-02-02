@@ -29,15 +29,13 @@ const AccountMenu = () => {
         <a href="/account/applications">{l('Applications')}</a>
       </li>
 
-    <li className="separator"></li>
+      <li className="separator"></li>
+      <span className="listhead"> My Data </span>
   
-
-
       <li>
         <a href={userLink(userName, '/subscriptions/artist')}> {l('My Subscriptions')}</a>
       </li>
 
-      
       <li>
           <a href={userLink(userName, '/collections')}>{l('My Collections')}</a>
       </li>
@@ -50,27 +48,32 @@ const AccountMenu = () => {
           <a href={userLink(userName, '/tags')}>{l('My Tags')}</a>
       </li>
 
+      <li className="separator"></li>
+      <span className="listhead"> My Edits </span>
 
-        <li className="separator">
-          <a href={userLink(userName, '/edits/open')}>{l('My Open Edits')}</a>
-        </li>
+      <li>
+        <a href={userLink(userName, '/edits/open')}>{l('My Open Edits')}</a>
+      </li>
 
-        <li>
+      <li>
           <a href={userLink(userName, '/edits/all')}>{l('All My Edits')}</a>
-        </li>
+      </li>
 
-        <li>
+      <li>
           <a href="/edit/subscribed">{l('Edits for Subscribed Entities')}</a>
-        </li>
-        <li>
-          <a href="/edit/subscribed_editors">{l('Edits by Subscribed Editors')}</a>
-        </li>
-        <li>
-          <a href="/edit/notes-received">{l('Notes Left on My Edits')}</a>
-        </li>
+      </li>
 
-     
-        <li className="separator"> <a href="/logout">{l('Log Out')}</a> </li>
+      <li>
+          <a href="/edit/subscribed_editors">{l('Edits by Subscribed Editors')}</a>
+      </li>
+
+      <li>
+          <a href="/edit/notes-received">{l('Notes Left on My Edits')}</a>
+      </li>
+
+      <li className="separator"> 
+          <a href="/logout">{l('Log Out')}</a> 
+      </li>
 
     </ul>
   </li>

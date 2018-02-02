@@ -78,6 +78,15 @@ fieldset legend {
     margin-left: -5px;
 }
 
+#listhead {
+    height: 1em !important;
+    margin: 1em 1em;
+    padding: 0 1em;
+    background-color: #fff !important;
+    font-size: @small-text!important;
+    color: @text-white !important;
+}
+
 h3 {
     margin-top: 1em;
     margin-bottom: 0;
@@ -254,6 +263,19 @@ pre code {
                     cursor: pointer;
                     height: 15px;
                 }
+            }
+            chhavi {
+            float: left;
+                list-style-type: none;
+                list-style-image: none;
+                margin: 10px;
+                &:hover, &:active, &.fake-active {
+                    background-color: @text-white;
+                    > a, .menu-header {
+                        color: @text-white;
+                    }
+
+
             }
             li {
                 float: left;
